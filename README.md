@@ -27,3 +27,8 @@ Steps to Run the docker-compose server
 3. Run the docker-compose with the below command
 
    'docker-compose up'
+
+Port Forwarded:
+1. 5000 port is exposed for mongodb
+2. 8500 port is exposed for accessing consul HTTP api
+3. 8080 port is exposed for mygoapp
