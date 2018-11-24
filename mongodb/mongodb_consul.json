@@ -1,0 +1,16 @@
+{
+  "services": [
+    {
+      "check": {
+        "interval": "10s",
+        "args": ["./status_mongodb.sh"]
+      },
+      "name": "mongodb-master",
+      "port": 5000,
+      "tags": [
+        "mongodb",
+        "master"
+      ]
+    }
+  ]
+}

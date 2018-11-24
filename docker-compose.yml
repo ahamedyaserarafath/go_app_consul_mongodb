@@ -1,0 +1,35 @@
+version: '3'
+services:
+  mongodb:
+    build: mongodb
+    ports:
+     - "5000:5000"
+    networks:
+      vpcbr:
+        ipv4_address: 10.5.0.5
+  consul:
+    build: consul
+    ports:
+     - "8500:8500"
+    depends_on:
+      - "mongodb"
+    networks:
+      vpcbr:
+        ipv4_address: 10.5.0.6
+  mygoapp:
+    build: mygoapp
+    ports:
+     - "8080:8080"
+    depends_on:
+      - "mongodb"
+    networks:
+      vpcbr:
+        ipv4_address: 10.5.0.7
+
+
+networks:
+  vpcbr:
+    driver: bridge
+    ipam:
+      config:
+        - subnet: 10.5.0.0/16
